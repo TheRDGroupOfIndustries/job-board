@@ -9,7 +9,9 @@ const CompanyDB = () => {
   const { token, isAuthenticated,  } = useAuth();
 
   
-  const userFullName = localStorage.getItem("userCompanyFullName");
+  const userCompanyFullName = localStorage.getItem("userCompanyFullName");
+  const userFullName = localStorage.getItem("userFullName");
+
   const [activeTab, setActiveTab] = useState('overview');
   const [showJobForm, setShowJobForm] = useState(false);
   const [jobs, setJobs] = useState([]);
@@ -227,7 +229,7 @@ const handleJobSubmit = async (e, formData) => {
               </div>
               <div>
                 <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Company Dashboard</h1>
-                <p className="text-gray-600">Welcome  {userFullName}</p>
+                <p className="text-gray-600">Welcome  {userCompanyFullName}</p>
               </div>
             </div>
             <button
