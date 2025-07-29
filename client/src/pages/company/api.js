@@ -26,7 +26,8 @@ export const updateCompanyJob = (jobId, data) => apiRequest(`/postJobs/getAllJob
 export const fetchCompanyJobs = (page = 1, limit = 10) => apiRequest(`/postJobs/getAllJobs?page=${page}&limit=${limit}`, 'GET', null, true);
 export const deleteCompanyJob = (jobId) => apiRequest(`/postJobs/getAllJobs/${jobId}`, 'DELETE', null, true);
 
-export const getCompanyJobs = (auth = true) => apiRequest('/postJobs/getAllJob', 'GET', auth);
+export const getCompanyJobs = () => apiRequest('/postJobs/getAllJob', 'GET', null, true);
+
 export const deleteJobById = (id, auth = true) => apiRequest(`/postJobs/JobDelete/${id}`, 'DELETE', auth);
 
 
