@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "title": "Jr. Software Engineer",
+    "company": "Leading Client",
+    "postedBy": "Capital Placement Services",
+    "experience": "0–1 Yrs",
+    "salary": "₹ Not Disclosed",
+    "location": "Gurugram",
+    "skills": ["PHP", "MySQL", "HTML5", "OOPS", "jQuery"],
+    "logo": "https://via.placeholder.com/40"
+  },
+  {
+    "id": 2,
+    "title": "Full Stack Development Intern",
+    "company": "LifEase Solutions",
+    "postedBy": "1.0 ★ | 2 Reviews",
+    "experience": "Fresher",
+    "salary": "₹ 10,000/month",
+    "location": "Remote",
+    "skills": ["React", "Node.js", "MongoDB", "Git"],
+    "logo": "https://via.placeholder.com/40"
+  },
+  {
+    "id": 3,
+    "title": "Frontend Developer",
+    "company": "Tech Vision",
+    "postedBy": "Hiring Manager",
+    "experience": "1–2 Yrs",
+    "salary": "₹ 5–7 LPA",
+    "location": "Bangalore",
+    "skills": ["HTML", "CSS", "JavaScript", "React"],
+    "logo": "https://via.placeholder.com/40"
+  },
+  {
+    "id": 4,
+    "title": "Backend Developer Intern",
+    "company": "CodeNest",
+    "postedBy": "Internship Desk",
+    "experience": "Fresher",
+    "salary": "₹ 8,000/month",
+    "location": "Noida",
+    "skills": ["Node.js", "Express", "MongoDB"],
+    "logo": "https://via.placeholder.com/40"
+  },
+  {
+    "id": 5,
+    "title": "UI/UX Designer",
+    "company": "Designify",
+    "postedBy": "Creative Lead",
+    "experience": "0–1 Yrs",
+    "salary": "₹ 4 LPA",
+    "location": "Delhi",
+    "skills": ["Figma", "Sketch", "Adobe XD", "Wireframing"],
+    "logo": "https://via.placeholder.com/40"
+  }
+  
+]

@@ -1,0 +1,8 @@
+[
+  { "id": 1, "title": "Frontend Developer", "company": "TechSpark", "location": "Remote", "salary": "₹10 LPA" },
+  { "id": 2, "title": "Backend Developer", "company": "CodeBase", "location": "Bangalore", "salary": "₹8 LPA" },
+  { "id": 3, "title": "Full Stack Engineer", "company": "DevHub", "location": "Noida", "salary": "₹12 LPA" },
+  { "id": 4, "title": "UI/UX Designer", "company": "DesignIt", "location": "Delhi", "salary": "₹7 LPA" },
+  { "id": 5, "title": "DevOps Engineer", "company": "CloudNet", "location": "Remote", "salary": "₹11 LPA" },
+  { "id": 6, "title": "Data Analyst", "company": "DataCorp", "location": "Mumbai", "salary": "₹9 LPA" }
+]

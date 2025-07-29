@@ -1,0 +1,202 @@
+[
+  {
+    "company": "Amazon",
+    "role": "Senior UI/UX Designer",
+    "type": ["Part time", "Senior level", "Remote"],
+    "price": "$250/hr",
+    "location": "San Francisco, CA",
+    "date": "2023-05-20"
+  },
+  {
+    "company": "Google",
+    "role": "Junior UI/UX Designer",
+    "type": ["Full time", "Junior level", "Flexible Schedule"],
+    "price": "$150/hr",
+    "location": "California, CA",
+    "date": "2023-02-04"
+  },
+  {
+    "company": "Dribbble",
+    "role": "Senior Motion Designer",
+    "type": ["Part time", "Senior level", "Full Day"],
+    "price": "$260/hr",
+    "location": "New York, NY",
+    "date": "2023-01-29"
+  },
+  {
+    "company": "Twitter",
+    "role": "UX Designer",
+    "type": ["Full time", "Middle level", "Remote"],
+    "price": "$120/hr",
+    "location": "California, CA",
+    "date": "2023-04-11"
+  },
+  {
+    "company": "Airbnb",
+    "role": "Graphic Designer",
+    "type": ["Part time", "Senior level", "Remote"],
+    "price": "$300/hr",
+    "location": "New York, NY",
+    "date": "2023-04-02"
+  },
+  {
+    "company": "Apple",
+    "role": "Graphic Designer",
+    "type": ["Part time", "Remote"],
+    "price": "$140/hr",
+    "location": "San Francisco, CA",
+    "date": "2023-01-18"
+  },
+  {
+    "company": "Meta",
+    "role": "Product Designer",
+    "type": ["Full time", "Mid level", "Hybrid"],
+    "price": "$200/hr",
+    "location": "Austin, TX",
+    "date": "2023-03-22"
+  },
+  {
+    "company": "Netflix",
+    "role": "UI Engineer",
+    "type": ["Full time", "Remote"],
+    "price": "$180/hr",
+    "location": "Remote",
+    "date": "2023-03-10"
+  },
+  {
+    "company": "LinkedIn",
+    "role": "Visual Designer",
+    "type": ["Internship", "On-site"],
+    "price": "$60/hr",
+    "location": "Chicago, IL",
+    "date": "2023-02-16"
+  },
+  {
+    "company": "Spotify",
+    "role": "Interaction Designer",
+    "type": ["Part time", "Flexible"],
+    "price": "$130/hr",
+    "location": "Seattle, WA",
+    "date": "2023-04-20"
+  },
+  {
+    "company": "Adobe",
+    "role": "Creative Director",
+    "type": ["Full time", "Senior level"],
+    "price": "$320/hr",
+    "location": "Los Angeles, CA",
+    "date": "2023-03-05"
+  },
+  {
+    "company": "Slack",
+    "role": "UX Researcher",
+    "type": ["Contract", "Remote"],
+    "price": "$100/hr",
+    "location": "Remote",
+    "date": "2023-02-12"
+  },
+  {
+    "company": "Figma",
+    "role": "Design System Lead",
+    "type": ["Full time", "On-site"],
+    "price": "$270/hr",
+    "location": "Denver, CO",
+    "date": "2023-04-01"
+  },
+  {
+    "company": "Zoom",
+    "role": "Brand Designer",
+    "type": ["Flexible", "Remote"],
+    "price": "$160/hr",
+    "location": "Remote",
+    "date": "2023-02-25"
+  },
+  {
+    "company": "Dropbox",
+    "role": "Web Designer",
+    "type": ["Part time", "Freelance"],
+    "price": "$110/hr",
+    "location": "Remote",
+    "date": "2023-03-28"
+  },
+  {
+    "company": "Canva",
+    "role": "Illustrator",
+    "type": ["Full time", "Hybrid"],
+    "price": "$210/hr",
+    "location": "New York, NY",
+    "date": "2023-05-01"
+  },
+  {
+    "company": "Behance",
+    "role": "UI Developer",
+    "type": ["Full time", "Remote"],
+    "price": "$190/hr",
+    "location": "Remote",
+    "date": "2023-04-18"
+  },
+  {
+    "company": "Notion",
+    "role": "Interaction Designer",
+    "type": ["Remote", "Flexible schedule"],
+    "price": "$150/hr",
+    "location": "San Diego, CA",
+    "date": "2023-02-08"
+  },
+  {
+    "company": "Miro",
+    "role": "Product UI Designer",
+    "type": ["Internship", "Remote"],
+    "price": "$80/hr",
+    "location": "Remote",
+    "date": "2023-03-11"
+  },
+  {
+    "company": "Trello",
+    "role": "Junior UX Designer",
+    "type": ["Full time", "Entry level"],
+    "price": "$100/hr",
+    "location": "Phoenix, AZ",
+    "date": "2023-01-10"
+  },
+  {
+    "company": "ClickUp",
+    "role": "Product Illustrator",
+    "type": ["Freelance", "Remote"],
+    "price": "$115/hr",
+    "location": "Remote",
+    "date": "2023-04-25"
+  },
+  {
+    "company": "Asana",
+    "role": "UX Copywriter",
+    "type": ["Part time", "Remote"],
+    "price": "$90/hr",
+    "location": "Los Angeles, CA",
+    "date": "2023-03-15"
+  },
+  {
+    "company": "Zapier",
+    "role": "UX Engineer",
+    "type": ["Contract", "Remote"],
+    "price": "$220/hr",
+    "location": "Remote",
+    "date": "2023-02-19"
+  },
+  {
+    "company": "Basecamp",
+    "role": "UI Tester",
+    "type": ["Freelance", "Remote"],
+    "price": "$95/hr",
+    "location": "Remote",
+    "date": "2023-01-23"
+  },
+  {
+    "company": "Buffer",
+    "role": "Digital Product Designer",
+    "type": ["Remote", "Full time"],
+    "price": "$240/hr",
+    "location": "Austin, TX",
+    "date": "2023-05-05"
+  }
+]
