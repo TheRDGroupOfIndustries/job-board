@@ -26,7 +26,7 @@ const Header = () => {
         {/* Browse Job */}
         <div className="flex gap-2">
           <Link
-            to="/jobCardGrid"
+            to="/getJobs"
             className="px-4 py-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-400 border border-transparent hover:border-pink-400 hover:scale-105 hover:shadow-md transition-all duration-300 rounded-md font-medium"
           >
             Browse Job

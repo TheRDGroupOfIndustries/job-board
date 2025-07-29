@@ -21,6 +21,7 @@ export default function JobCardGrid() {
       try {
         const response = await getAllJobs();
         const data = response?.data;
+        console.log(data)
 
         if (Array.isArray(data?.data)) {
           setJobs(data.data);
@@ -50,7 +51,7 @@ export default function JobCardGrid() {
     return matchTitle && matchLocation;
   });
 
-  const jobsToShow = location.pathname === "/jobCardGrid" ? filteredJobs : filteredJobs.slice(0, 6);
+  const jobsToShow = location.pathname === "/getJobs" ? filteredJobs : filteredJobs.slice(0, 6);
 
   const handleSaveJob = (e, job) => {
     e.stopPropagation();
@@ -69,6 +70,8 @@ export default function JobCardGrid() {
       toast.info("Job already saved.");
     }
   };
+ 
+
 
   return (
     <section className="py-10 px-6 bg-[conic-gradient(at_top_left,#DBEAFE,#FCE7F3,#FEF9C3,#DCFCE7,#EDE9FE,#FECACA)]">
@@ -156,14 +159,23 @@ export default function JobCardGrid() {
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">{job.jobTitle}</h3>
 
                 <div className="flex flex-wrap gap-2 mb-3">
-                  {(job.skills || []).map((skill, idx) => (
-                    <span
-                      key={idx}
-                      className="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full font-medium"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                 {Array.isArray(job.skills)
+  ? job.skills
+      .flatMap(skill =>
+        typeof skill === "string" && skill.includes(",")
+          ? skill.split(",").map(s => s.trim())
+          : [skill]
+      )
+      .map((skill, idx) => (
+        <span
+          key={idx}
+          className="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full font-medium"
+        >
+          {skill}
+        </span>
+      ))
+  : null}
+
                 </div>
 
                 <div className="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">

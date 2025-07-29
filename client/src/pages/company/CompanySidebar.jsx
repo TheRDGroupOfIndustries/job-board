@@ -46,7 +46,7 @@ const CompanySidebar = () => {
       <div className="lg:hidden bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
         <div className="px-6">
           <div className="flex items-center justify-between h-16">
-            <Link to="/company-dashboard" className="flex items-center space-x-2">
+            <Link to="/" className="flex items-center space-x-2">
               <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-500 text-transparent bg-clip-text">
                 JobFinder
               </span>
@@ -65,7 +65,7 @@ const CompanySidebar = () => {
       <div className={`fixed inset-y-0 left-0 z-50 bg-white border-r border-gray-200 transition-all duration-300 ${collapsed ? 'w-20' : 'w-64'} hidden lg:block`}>
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-between h-16 px-6 border-b border-gray-200">
-            <Link to="/company-dashboard" className="flex items-center space-x-2">
+            <Link to="/" className="flex items-center space-x-2">
               <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 {collapsed ? 'JF' : 'JobFinder'}
               </span>

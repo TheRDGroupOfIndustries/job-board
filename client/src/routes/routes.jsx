@@ -12,7 +12,7 @@ import UserProfile from "../pages/users/UserProfile";
 import JobDetail from "../pages/users/JobDetail";
 import JobCardGrid from "../pages/common/home/JobCardGrid"
 import ProtectedRoute from "../routes/ProtectedRoute";
-import Advice from "../pages/common/about/Advice";
+import Advice from "../pages/common/home/Advice";
 import SavedJobs from "../pages/users/SavedJobs";
 import AllApplications from "../pages/users/AllApplications";
 import SettingProfile from "../pages/users/SettingProfile";
@@ -24,7 +24,6 @@ import FilteredJobsByTitle from "../pages/common/home/FilteredJobsByTitle";
 import ApplicationDetail from "../pages/users/ApplicationDetail";
 import CompanyProfileSetting from "../pages/company/CompanyProfileSetting";
 import CompanyRec from "../pages/company/CompanyRec";
-import CompanyDB from "../pages/company/CompanyDB";
 import MyJobs from "../pages/company/MyJobs";
 
 
@@ -35,7 +34,7 @@ function AppRoutes() {
       <Route path="/auth/register" element={<Register />} />     
       <Route path="/auth/forgot-password" element={<ForgotPassword />} />
       <Route path="/auth/verify-email-otp" element={<VerifyEmailOtp />} />
-       <Route path="/jobCardGrid" element={<JobCardGrid />} />
+       <Route path="/getJobs" element={<JobCardGrid />} />
        <Route path="/category" element={<Category/>}/>
        <Route path="/advice" element={<Advice/>}/>
        <Route path="/jobs" element={<FilteredJobsByTitle/>}/>
