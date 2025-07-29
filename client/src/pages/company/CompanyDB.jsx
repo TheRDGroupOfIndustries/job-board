@@ -295,7 +295,8 @@ const handleJobSubmit = async (e, formData) => {
                           <div key={app._id} className="flex items-center space-x-3 p-3 bg-white rounded-lg">
                             <div className="flex-shrink-0">
                               <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold">
-                                {userFullName.charAt(0) || 'A'}
+                               {userFullName?.charAt(0) || 'A'}
+
                               </div>
                             </div>
                             <div className="flex-1 min-w-0">
@@ -446,7 +447,8 @@ const handleJobSubmit = async (e, formData) => {
                           <div className="flex items-center space-x-3">
                             <div className="flex-shrink-0">
                               <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold">
-                                {app.user?.firstName?.charAt(0) || 'A'}
+                                {userFullName?.charAt(0) || 'A'}
+
                               </div>
                             </div>
                             <div className="min-w-0">

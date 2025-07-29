@@ -99,7 +99,7 @@ const CompanySidebar = () => {
               >
                 <div className="flex items-center">
                   <div className="flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium">
-                    {userFullName.charAt(0) || 'U'}
+                    {userFullName?.charAt(0) || 'U'}
                   </div>
                   {!collapsed && (
                     <div className="ml-3 text-left">
@@ -146,7 +146,7 @@ const CompanySidebar = () => {
           <div className="pt-2 mt-2 border-t border-gray-200">
             <div className="flex items-center px-4 py-3 bg-gray-50 rounded-lg">
               <div className="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium mr-3">
-                {userFullName.charAt(0) || 'U'}
+                {userFullName?.charAt(0) || 'U'}
               </div>
               <div>
                 <p className="text-sm font-medium text-gray-900">{userFullName || 'User'}</p>
