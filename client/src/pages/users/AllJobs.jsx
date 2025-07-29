@@ -78,16 +78,24 @@ const AllJobs = () => {
                     </div>
                   </div>
 
-                  <div className="flex flex-wrap gap-2 mb-2">
-                    {job.skills?.map((skill, i) => (
-                      <span
-                        key={i}
-                        className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
+                <div className="flex flex-wrap gap-2 mb-2">
+  {Array.isArray(job.skills) &&
+    job.skills
+      .flatMap(skill =>
+        typeof skill === "string" && skill.includes(",")
+          ? skill.split(",").map(s => s.trim())
+          : [skill]
+      )
+      .map((skill, i) => (
+        <span
+          key={i}
+          className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium"
+        >
+          {skill}
+        </span>
+      ))}
+</div>
+
 
                   <div className="text-sm text-gray-500 flex justify-between items-center">
                     <span className="flex items-center gap-1">

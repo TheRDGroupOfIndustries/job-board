@@ -69,7 +69,7 @@ const USerNav = () => {
             {showMenu && (
               <div className="absolute right-0 mt-2 w-44 bg-white border border-gray-200 shadow-lg rounded-md z-50">
                 <Link
-                  to="/jobseeker-setting"
+                  to="/update-profile"
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-100 transition"
                 >
                   Profile Setting

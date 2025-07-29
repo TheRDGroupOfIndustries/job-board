@@ -119,7 +119,7 @@ const JobDetails = () => {
       navigate("/auth/login");
       return;
     }
- if (role !== "Jobseeker") {
+ if (role?.toLowerCase() !== "Jobseeker") {
     return toast.warn("Only job seekers can save jobs.");
   }
     const savedJobs = JSON.parse(localStorage.getItem("savedJobs")) || [];
@@ -138,7 +138,7 @@ const JobDetails = () => {
       navigate("/auth/login");
       return;
     }
- if (role !== "Jobseeker") {
+ if (role?.toLowerCase() !== "jobseeker") {
     return toast.warn("Only job seekers can apply.");
   }
     try {
@@ -216,13 +216,13 @@ const JobDetails = () => {
               <button
                 onClick={() => handleApply(jobDetail._id)}
                 className={`py-3 px-3 rounded-lg font-semibold transition-all ${
-                  role==="jobseeker" && isApplied
+                  role?.toLowerCase() === "jobseeker" && isApplied
                     ? "bg-green-300 text-gray-600 cursor-not-allowed"
                     : "bg-green-200 text-green-700 hover:bg-green-300"
                 }`}
                
               >
-                {role==="jobseeker" && isApplied ? "Applied" : "Apply Now"}
+                {role?.toLowerCase() === "jobseeker" && isApplied ? "Applied" : "Apply Now"}
               </button>
               <button className="p-3 rounded-full bg-white/20 text-gray-700 hover:bg-white/30 transition-all">
                 <Share2 className="w-5 h-5" />
@@ -230,14 +230,14 @@ const JobDetails = () => {
               <button
                 onClick={handleSaveJob}
                 className={`p-3 rounded-full transition-all ${
-                  role==="jobseeker" && isSaved
+                  role?.toLowerCase() === "jobseeker" && isSaved
                     ? "bg-yellow-500 text-white"
                     : "bg-white/20 text-gray-700 hover:bg-white/30"
                 }`}
               >
                 <BookmarkPlus
                   className="w-5 h-5"
-                  fill={role==="jobseeker" && isSaved ? "currentColor" : "none"}
+                  fill={role?.toLowerCase() === "jobseeker" && isSaved ? "currentColor" : "none"}
                 />
               </button>
             </div>
@@ -304,21 +304,21 @@ const JobDetails = () => {
                 <button
                   onClick={() => handleApply(jobDetail._id)}
                   className={`w-full py-3 rounded-lg font-semibold transition-all ${
-                    role==="jobseeker" && isApplied
+                    role?.toLowerCase() === "jobseeker" && isApplied
                       ? "bg-green-300 text-gray-600 cursor-not-allowed"
                       : "bg-green-100 text-green-700 hover:bg-green-300"
                   }`}
-                  disabled={role==="jobseeker" && isApplied}
+                  disabled={role?.toLowerCase() === "jobseeker" && isApplied}
                 >
-                  {role==="jobseeker" && isApplied ? "Applied" : "Apply Now"}
+                  {role?.toLowerCase() === "jobseeker" && isApplied ? "Applied" : "Apply Now"}
                 </button>
                 <button
                   onClick={handleSaveJob}
                   className={`w-full border border-gray-300 text-gray-700 py-3 rounded-lg font-medium hover:bg-gray-50 transition-all ${
-                    role==="jobseeker" && isSaved  ? "bg-yellow-100" : ""
+                    role?.toLowerCase() === "jobseeker" && isSaved  ? "bg-yellow-100" : ""
                   }`}
                 >
-                  {role==="jobseeker" && isSaved ? "Saved" : "Save Job"}
+                  {role?.toLowerCase() === "jobseeker" && isSaved ? "Saved" : "Save Job"}
                 </button>
               </div>
             </div>

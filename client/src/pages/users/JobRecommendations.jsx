@@ -320,8 +320,8 @@ const JobRecommendations = () => {
                         action.label === "Saved Jobs"
                           ? "/saved-jobs"
                           : action.label === "Browse Jobs"
-                          ? "/jobCardGrid"
-                          : "/jobseeker-setting"
+                          ? "/getJobs"
+                          : "/update-profile"
                       )
                     }
                     className={`w-full flex items-center justify-between p-3 rounded-lg ${action.color} hover:shadow-lg transition-all`}

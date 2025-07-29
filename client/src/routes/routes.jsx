@@ -65,7 +65,7 @@ function AppRoutes() {
         }
       />
       <Route
-        path="/jobseeker-setting"
+        path="/update-profile"
         element={
           <ProtectedRoute>
             <SettingProfile/>
