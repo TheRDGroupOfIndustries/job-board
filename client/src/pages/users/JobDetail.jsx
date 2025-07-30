@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { allApplication } from "../../API";
+import { allApplication, getAllJobs } from "../../API";
+
 
 import {
   Share2,
@@ -80,30 +81,48 @@ const JobDetails = () => {
     navigate(-1);
   };
 
-  useEffect(() => {
-    const jobList = JSON.parse(localStorage.getItem("allJobs")) || [];
-    const job = jobList.find((job) => job._id === id);
-    setJobDetail(job);
 
-    if (job && isAuthenticated) {
-      const savedJobs = JSON.parse(localStorage.getItem("savedJobs")) || [];
-      const appliedJobs =
-        JSON.parse(localStorage.getItem("applications")) || [];
-      setIsSaved(!!savedJobs.find((j) => j._id === job._id));
-      setIsApplied(!!appliedJobs.find((j) => j.title === job.jobTitle));
+
+useEffect(() => {
+  const fetchAndSetJob = async () => {
+    try {
+      const res = await getAllJobs(); 
+      const jobList = res.data.data;
+      const job = jobList.find((job) => job._id === id);
+      setJobDetail(job);
+
+   if (job && isAuthenticated) {
+  const savedJobs = JSON.parse(localStorage.getItem("savedJobs")) || [];
+  const appliedJobs = JSON.parse(localStorage.getItem("applications")) || [];
+
+  setIsSaved(!!savedJobs.find((j) => j._id === job._id));
+  setIsApplied(!!appliedJobs.find((j) => j.title === job.jobTitle));
+
+  allApplication()
+    .then((res) => {
+      const userApplications = res.data.data;
+
+      const alreadyApplied = userApplications.find(
+        (app) => app.job === job._id || app.job?._id === job._id
+      );
+
+      setIsApplied(!!alreadyApplied);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+
+
+    } catch (error) {
+      console.error("Error fetching jobs:", error);
+      setJobDetail(null);
     }
-    allApplication()
-      .then((res) => {
-        const userApplications = res.data.data;
-        const alreadyApplied = userApplications.find(
-          (app) => app.job === job._id || app.job._id === job._id
-        );
-        setIsApplied(!!alreadyApplied);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [id, isAuthenticated]);
+  };
+
+  fetchAndSetJob();
+}, [id, isAuthenticated]);
+
 
   if (!jobDetail) {
     return (

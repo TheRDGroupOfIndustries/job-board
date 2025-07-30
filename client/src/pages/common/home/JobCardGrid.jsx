@@ -21,8 +21,7 @@ export default function JobCardGrid() {
       try {
         const response = await getAllJobs();
         const data = response?.data;
-        console.log(data)
-
+       
         if (Array.isArray(data?.data)) {
           setJobs(data.data);
         } else if (Array.isArray(data?.jobs)) {
@@ -46,12 +45,17 @@ export default function JobCardGrid() {
   const handleGoBack = () => navigate(-1);
 
   const filteredJobs = jobs.filter((job) => {
-    const matchTitle = (job.jobTitle || "").toLowerCase().includes(searchTitle.toLowerCase());
-    const matchLocation = (job.location || "").toLowerCase().includes(searchLocation.toLowerCase());
+    const matchTitle = (job.jobTitle || "")
+      .toLowerCase()
+      .includes(searchTitle.toLowerCase());
+    const matchLocation = (job.location || "")
+      .toLowerCase()
+      .includes(searchLocation.toLowerCase());
     return matchTitle && matchLocation;
   });
 
-  const jobsToShow = location.pathname === "/getJobs" ? filteredJobs : filteredJobs.slice(0, 6);
+  const jobsToShow =
+    location.pathname === "/getJobs" ? filteredJobs : filteredJobs.slice(0, 6);
 
   const handleSaveJob = (e, job) => {
     e.stopPropagation();
@@ -70,8 +74,6 @@ export default function JobCardGrid() {
       toast.info("Job already saved.");
     }
   };
- 
-
 
   return (
     <section className="py-10 px-6 bg-[conic-gradient(at_top_left,#DBEAFE,#FCE7F3,#FEF9C3,#DCFCE7,#EDE9FE,#FECACA)]">
@@ -93,7 +95,8 @@ export default function JobCardGrid() {
             </span>
           </h2>
           <p className="text-gray-600 mt-2 max-w-xl mx-auto">
-            Browse through a wide range of exciting job roles from top companies.
+            Browse through a wide range of exciting job roles from top
+            companies.
           </p>
         </div>
 
@@ -151,31 +154,34 @@ export default function JobCardGrid() {
 
                 <div className="flex items-center gap-4 mb-4">
                   <div>
-                    <h4 className="text-sm font-medium text-gray-700">{job.companyName}</h4>
+                    <h4 className="text-sm font-medium text-gray-700">
+                      {job.companyName}
+                    </h4>
                     <p className="text-xs text-gray-400">{job.location}</p>
                   </div>
                 </div>
 
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">{job.jobTitle}</h3>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                  {job.jobTitle}
+                </h3>
 
                 <div className="flex flex-wrap gap-2 mb-3">
-                 {Array.isArray(job.skills)
-  ? job.skills
-      .flatMap(skill =>
-        typeof skill === "string" && skill.includes(",")
-          ? skill.split(",").map(s => s.trim())
-          : [skill]
-      )
-      .map((skill, idx) => (
-        <span
-          key={idx}
-          className="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full font-medium"
-        >
-          {skill}
-        </span>
-      ))
-  : null}
-
+                  {Array.isArray(job.skills)
+                    ? job.skills
+                        .flatMap((skill) =>
+                          typeof skill === "string" && skill.includes(",")
+                            ? skill.split(",").map((s) => s.trim())
+                            : [skill]
+                        )
+                        .map((skill, idx) => (
+                          <span
+                            key={idx}
+                            className="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full font-medium"
+                          >
+                            {skill}
+                          </span>
+                        ))
+                    : null}
                 </div>
 
                 <div className="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
@@ -200,7 +206,9 @@ export default function JobCardGrid() {
               </div>
             ))
           ) : (
-            <p className="col-span-full text-center text-gray-500">No matching jobs found.</p>
+            <p className="col-span-full text-center text-gray-500">
+              No matching jobs found.
+            </p>
           )}
         </div>
       </div>

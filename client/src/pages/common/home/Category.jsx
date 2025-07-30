@@ -77,6 +77,7 @@ const Category = () => {
       try {
         const res = await getAllJobs();
         const jobs = res?.data?.data || [];
+        console.log(jobs)
         const categorized = groupJobsByTitleKeyword(jobs);
         setCategorizedJobs(categorized);
       } catch (error) {
