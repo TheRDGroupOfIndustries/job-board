@@ -6,11 +6,13 @@ import { useAuth } from "../../../context/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { getAllJobs } from "../../../API";
+import LoadingSpinner from "../../../components/Loading";
 
 export default function JobCardGrid() {
   const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+const [loading, setLoading] = useState(true);
 
   const [jobs, setJobs] = useState([]);
   const [searchTitle, setSearchTitle] = useState("");
@@ -18,6 +20,7 @@ export default function JobCardGrid() {
 
   useEffect(() => {
     const fetchJobs = async () => {
+        setLoading(true);
       try {
         const response = await getAllJobs();
         const data = response?.data;
@@ -36,7 +39,9 @@ export default function JobCardGrid() {
       } catch (error) {
         console.error("Error fetching jobs:", error);
         toast.error("Failed to fetch jobs.");
-      }
+      }finally {
+      setLoading(false); 
+    }
     };
 
     fetchJobs();
@@ -136,81 +141,86 @@ export default function JobCardGrid() {
         </div>
 
         {/* Job Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {jobsToShow.length > 0 ? (
-            jobsToShow.map((job) => (
-              <div
-                key={job._id}
-                onClick={() => navigate(`/jobs/${job._id}`)}
-                className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl border border-gray-100 transition-all duration-300 flex flex-col justify-between relative"
-              >
-                <button
-                  onClick={(e) => handleSaveJob(e, job)}
-                  className="absolute top-4 right-4 p-2 bg-gray-50 hover:bg-gray-100 rounded-full transition"
-                  title="Save Job"
-                >
-                  <BookmarkPlus className="w-4 h-4 text-blue-500" />
-                </button>
+        {loading ? (
+  <LoadingSpinner size="large" />
+) : (
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    {jobsToShow.length > 0 ? (
+      jobsToShow.map((job) => (
+        <div
+          key={job._id}
+          onClick={() => navigate(`/jobs/${job._id}`)}
+          className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl border border-gray-100 transition-all duration-300 flex flex-col justify-between relative"
+        >
+          <button
+            onClick={(e) => handleSaveJob(e, job)}
+            className="absolute top-4 right-4 p-2 bg-gray-50 hover:bg-gray-100 rounded-full transition"
+            title="Save Job"
+          >
+            <BookmarkPlus className="w-4 h-4 text-blue-500" />
+          </button>
 
-                <div className="flex items-center gap-4 mb-4">
-                  <div>
-                    <h4 className="text-sm font-medium text-gray-700">
-                      {job.companyName}
-                    </h4>
-                    <p className="text-xs text-gray-400">{job.location}</p>
-                  </div>
-                </div>
+          <div className="flex items-center gap-4 mb-4">
+            <div>
+              <h4 className="text-sm font-medium text-gray-700">
+                {job.companyName}
+              </h4>
+              <p className="text-xs text-gray-400">{job.location}</p>
+            </div>
+          </div>
 
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                  {job.jobTitle}
-                </h3>
+          <h3 className="text-lg font-semibold text-gray-800 mb-2">
+            {job.jobTitle}
+          </h3>
 
-                <div className="flex flex-wrap gap-2 mb-3">
-                  {Array.isArray(job.skills)
-                    ? job.skills
-                        .flatMap((skill) =>
-                          typeof skill === "string" && skill.includes(",")
-                            ? skill.split(",").map((s) => s.trim())
-                            : [skill]
-                        )
-                        .map((skill, idx) => (
-                          <span
-                            key={idx}
-                            className="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full font-medium"
-                          >
-                            {skill}
-                          </span>
-                        ))
-                    : null}
-                </div>
-
-                <div className="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
-                  <span>
-                    <strong>Experience:</strong> {job.experienceLevel}
-                  </span>
-                  <span>
-                    <strong>Salary:</strong> {job.saleryRange}
-                  </span>
-                </div>
-
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {(job.tags || []).map((tag, idx) => (
+          <div className="flex flex-wrap gap-2 mb-3">
+            {Array.isArray(job.skills)
+              ? job.skills
+                  .flatMap((skill) =>
+                    typeof skill === "string" && skill.includes(",")
+                      ? skill.split(",").map((s) => s.trim())
+                      : [skill]
+                  )
+                  .map((skill, idx) => (
                     <span
                       key={idx}
-                      className="text-xs px-2 py-1 bg-blue-100 text-blue-700 rounded-full font-medium"
+                      className="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full font-medium"
                     >
-                      {tag}
+                      {skill}
                     </span>
-                  ))}
-                </div>
-              </div>
-            ))
-          ) : (
-            <p className="col-span-full text-center text-gray-500">
-              No matching jobs found.
-            </p>
-          )}
+                  ))
+              : null}
+          </div>
+
+          <div className="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
+            <span>
+              <strong>Experience:</strong> {job.experienceLevel}
+            </span>
+            <span>
+              <strong>Salary:</strong> {job.saleryRange}
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2 mb-4">
+            {(job.tags || []).map((tag, idx) => (
+              <span
+                key={idx}
+                className="text-xs px-2 py-1 bg-blue-100 text-blue-700 rounded-full font-medium"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
+      ))
+    ) : (
+      <p className="col-span-full text-center text-gray-500">
+        No matching jobs found.
+      </p>
+    )}
+  </div>
+)}
+
       </div>
     </section>
   );
