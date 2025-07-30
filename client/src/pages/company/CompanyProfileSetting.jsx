@@ -620,7 +620,7 @@ const CompanyProfileSetting = () => {
 
   const toggleEdit = () => {
     if (isEditing) {
-      loadProfileFromLocalStorage(); // Revert to saved data if canceling edits
+      loadProfileFromLocalStorage(); 
     }
     setIsEditing(!isEditing);
   };

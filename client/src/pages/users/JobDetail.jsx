@@ -73,6 +73,7 @@ const JobDetails = () => {
   const [isSaved, setIsSaved] = useState(false);
   const [jobDetail, setJobDetail] = useState(null);
   const [isApplied, setIsApplied] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
   const { isAuthenticated , role} = useAuth();
@@ -87,11 +88,11 @@ useEffect(() => {
   const fetchAndSetJob = async () => {
     try {
       const res = await getAllJobs(); 
-      const jobList = res.data.data;
+      const jobList = res.data.data; 
+      
       const job = jobList.find((job) => job._id === id);
       setJobDetail(job);
-
-   if (job && isAuthenticated) {
+if (job && isAuthenticated) {
   const savedJobs = JSON.parse(localStorage.getItem("savedJobs")) || [];
   const appliedJobs = JSON.parse(localStorage.getItem("applications")) || [];
 
@@ -113,18 +114,27 @@ useEffect(() => {
     });
 }
 
-
     } catch (error) {
       console.error("Error fetching jobs:", error);
       setJobDetail(null);
+    }finally {
+      setLoading(false); 
     }
   };
 
   fetchAndSetJob();
 }, [id, isAuthenticated]);
 
+if (loading) {
+  return (
+    <div className="flex flex-col items-center justify-center h-64 space-y-3">
+      <div className="w-12 h-12 border-4 border-green-500 border-t-transparent rounded-full animate-spin"></div>
+      <p className="text-green-600 font-medium text-lg">Loading job details...</p>
+    </div>
+  );
+}
 
-  if (!jobDetail) {
+  if (!jobDetail && !loading) {
     return (
       <div className="p-6 text-red-600 font-semibold text-center text-xl">
         Job not found
